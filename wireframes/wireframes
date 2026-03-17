@@ -1,0 +1,3 @@
+inlog --> menu --> levels --> level --> Resultatenscherm/GameOver
+GameOver --> level/levels
+Resultatenscherm --> level/levels
