@@ -7,8 +7,8 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open Menu.html",
-            "file": "c:\\Users\\damia\\OneDrive\\Documenten\\GitHub\\Taaltrainer-Team7Forked\\src\\Menu.html"
+            "name": "Open LoginTemp.html",
+            "file": "c:\\Users\\damia\\OneDrive\\Documenten\\GitHub\\Taaltrainer-Team7Forked\\src\\LoginTemp.html"
         }
     ]
 }
