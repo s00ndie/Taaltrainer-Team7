@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if (isset($_SESSION['user']))
+    {
+    echo "Welcome " . $_SESSION['user'] . "!";
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +16,11 @@
     <link rel="stylesheet" href="disign/style.css">
 </head>
 <body>
-    <?php
-        session_start();
-        if (isset($_SESSION['user']))
-            {
-                echo "Welcome " . $_SESSION['user'] . "!";
-            }
-
-    ?>
     <br>
     <?php
         if (isset($_SESSION["user"]))
-            {echo '<form action="uitlogen.php" method="post">
+            {echo '<a href="test.php">Start de taaltainer</a><br>
+            <form action="uitlogen.php" method="post">
             <input type="submit" value="uitloggen" class="logs">
 
             </form>';
