@@ -3,7 +3,7 @@
 $servername = 'localhost';
 $username = 'root';
 $password = '';
-$dbname = 'taaltrainer';
+$dbname = 'taaltrainernew';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
