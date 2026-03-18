@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mb_strtolower($user_answer) == mb_strtolower($correct_answer)) {
         $message = "<div class='container'><p style='color: green;'>✅ Correct! <b>$original_word</b> - dat is <b>$correct_answer</b>.</p>";
     } else {
-        $message = "<div class='container'><p style='color: red;'>❌ Fout. <b>$original_word</b> - dat is <b>$correct_answer</b>, maar niet $user_answer.</p>";
+        $message = "<div class='container'><p style='color: red;'>❌ Fout. <b>$original_word</b> - dat is <b>$correct_answer</b>, maar niet $user_answer.</p></div>";
     }
     
     echo $message;
@@ -72,6 +72,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit" class="butt">Controleer</button>
                 <button type="button" class="butt" onclick="window.location.href='index.php'">Terug naar start</button> 
             </form>
+            <script>
+                Levens = 3;
+                VragenBeantwoord = 0;
+                if (mb_strtolower($user_answer) == mb_strtolower($correct_answer)) {
+                    Levens = Levens
+                    VragenBeantwoord = VragenBeantwoord + 1
+                    console.log(Levens)
+                }
+                else {
+                    Levens = Levens - 1
+                    console.log(Levens)
+                }
+
+                if Levens == 0 {
+                    print("Game over")
+                    <a href="index.php" id="GoverBack">Terug naar start</a>
+                }
+
+                if VragenBeantwoord == 10 {
+                    print("Je hebt gewonnen")
+                    <a href="test.php" id="WinRetry">Opnieuw</a>
+                    <a href="index.php" id="WinReturn">Terug naar start</a>
+                }
+            </script>
         </div>
     </div>
 </body>
