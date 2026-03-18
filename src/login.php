@@ -14,7 +14,7 @@
     <br>
     <input type="submit" value="Inlogen" class="butt">
     </form>
-    <a href="register.php">Nog geen account?</a>
+    <a href="register.php">Nog geen account?</a><br>
 
     <?php
     session_start();
@@ -26,7 +26,7 @@
         $pwd = $_POST['pwd'];
         if(empty($login) || empty($pwd)){
             echo 'Je moet alle velden invullen!<br><br>';
-            echo '<a href="login.php">Terug naar inloggen</a>';
+            
             exit;
         } else {
             $hash = "SELECT Wachtwoord FROM logs WHERE Gebruikersnaam = '$login'";
@@ -36,8 +36,7 @@
             $_SESSION['user'] = $login;
             header('Location: index.php');
         } else{
-            echo 'Ongeldige gebruikersnaam of wachtwoord!<br><br>';
-            echo '<a href="login.php">Terug naar inloggen</a>';
+            echo '<br>Ongeldige gebruikersnaam of wachtwoord!<br><br>';
             exit;
         }
         }
