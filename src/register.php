@@ -27,7 +27,7 @@
             </form>';
         } else{
             echo '<br>';
-            echo '<a href="index.php">Heb je al een account?</a><br>';
+            echo '<a href="login.php">Heb je al een account?</a><br>';
         }
         ?>
         <?php
@@ -40,11 +40,9 @@
 
                 if(empty($gnaam) || empty($pwd) || empty($repeatPwd)){
                 echo 'Je moet alle velden invullen!<br><br>';
-                    echo '<a href="register.php">Terug naar registratie</a>';
                     exit;
                 } elseif($pwd !== $repeatPwd){
                     echo 'Wachtwoorden komen niet overeen!<br><br>';
-                    echo '<a href="register.php">Terug naar registratie</a>';
                     exit;
                 }
                 $pwd = password_hash($pwd, PASSWORD_DEFAULT);

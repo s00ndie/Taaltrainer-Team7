@@ -13,13 +13,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoofdpagina</title>
-    <link rel="stylesheet" href="disign/style.css">
+    <link rel="stylesheet" href="design/style.css">
 </head>
 <body>
     <br>
     <?php
         if (isset($_SESSION["user"]))
             {echo '<a href="test.php">Start de taaltainer</a><br>
+            <a href="quiz.php">Start de quiz</a><br>
             <form action="uitlogen.php" method="post">
             <input type="submit" value="uitloggen" class="logs">
 
