@@ -107,7 +107,7 @@
         }
 
         .extra-link a {
-            color: var(--button-bg);
+            color: darkblue;
             text-decoration: none;
         }
 
@@ -116,7 +116,7 @@
         }
 
         .message {
-            padding: 12px;
+ FF            padding: 12px;
             margin-bottom: 16px;
             border-radius: 8px;
             text-align: center;

@@ -58,15 +58,20 @@
             font-weight: 600;
         }
 
-        input {
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
             width: 100%;
             padding: 10px 12px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 1rem;
+            margin-bottom: 12px;
         }
 
-        input:focus {
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
             outline: 2px solid rgba(156, 201, 242, 0.4);
             border-color: var(--button-bg);
         }
@@ -81,6 +86,7 @@
             font-weight: 600;
             padding: 11px 14px;
             cursor: pointer;
+            margin-bottom: 14px;
         }
 
         .login-knop:hover {
@@ -88,13 +94,36 @@
         }
 
         .extra-link {
-            margin-top: 14px;
             font-size: 0.9rem;
             text-align: center;
             color: var(--muted-text);
         }
 
         .extra-link a {
-            color: var(--button-bg);
+            color: darkblue;
             text-decoration: none;
+        }
+
+        .extra-link a:hover {
+            text-decoration: underline;
+        }
+
+        .message {       
+            padding: 12px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .error {
+            background-color: #ffcccc;
+            color: #cc0000;
+            border: 1px solid #ff9999;
+        }
+
+        .success {
+            background-color: #ccffcc;
+            color: #00cc00;
+            border: 1px solid #99ff99;
         }
