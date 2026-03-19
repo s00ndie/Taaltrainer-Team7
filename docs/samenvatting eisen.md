@@ -9,7 +9,7 @@
 ||Code||
 
 1. De taal die je kan leren is Spaans en de moedertaal is Nederlands
-2. Het leren van de talen moet makkelijk-medium zijn. Makkelijke worden moeten worden geimplemeert dus.
+2. Het leren van de talen moet makkelijk-medium zijn. Makkelijke woorden moeten worden geimplemeert dus.
 3. Simpel menu om te navigeren van het menu naar de levels & vragen.
 4. Als er een fout word gemaakt dan word het uitgelegd waarom het fout is, het foutte woord word herhaald in de volgende vraag, de woorden in de vragen zijn woorden uit de database.
 5. Er moet een inlog systeem zijn. Je data word opgeslagen op het account van die gebruiker.
