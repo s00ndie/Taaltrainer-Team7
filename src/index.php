@@ -19,21 +19,21 @@
     <br>
     <?php
         if (isset($_SESSION["user"]))
-            {echo '<a href="test.php">Start de taaltainer</a><br>
-            <a href="quiz.php">Start de quiz</a><br>
+            {echo '<a href="test.php" id="Starter">Start de taaltainer</a><br>
+            <a href="quiz.php" id="Quiz">Start de quiz</a><br>
             <form action="uitlogen.php" method="post">
-            <input type="submit" value="uitloggen" class="logs">
+            <input type="submit" value="uitloggen" class="logs" id="Uitlogger">
 
             </form>';
 
         } else{
             echo '<br>';
-            echo '<a href="login.php">Heb je al een account?</a> <br>';
-            echo '<a href="register.php">Heb je nog geen account?</a>';
+            echo '<a href="login.php" id="Loginaaa">Heb je al een account?</a> <br>';
+            echo '<a href="register.php" id="AccNew">Heb je nog geen account?</a>';
 
         }
             
 
     ?> 
-
+    
 </body>
