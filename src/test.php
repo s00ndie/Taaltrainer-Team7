@@ -49,7 +49,95 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Test Taaltrainer</title>
-    <link rel="stylesheet" href="disign/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #a8d86f 0%, #b8e07f 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            background: #90c056;
+            padding: 40px;
+            border-radius: 14px;
+            text-align: center;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            background-color: #8fc74f;
+            padding: 20px 60px;
+            margin-bottom: 40px;
+            border-radius: 5px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #0f2a0d;
+            display: inline-block;
+            width: 100%;        
+        }
+
+        .card {
+            background-color: #a8d86f;
+            border: 2px solid #8fc74f;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            font-size: 2.25rem;
+            margin-bottom: 24px;
+            color: #1b2a16;
+        }
+
+        .in {
+            width: 100%;
+            padding: 18px 16px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: 2px solid #8fc74f;
+            background: #ffffff;
+            margin: 18px 0 24px;
+        }
+
+        .in::placeholder {
+            color: #bbb;
+        }
+
+        .butt {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #7ab43a;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 14px;
+        }
+
+        .butt:hover {
+            background-color: #6ba02f;
+        }
+
+        .butt:active {
+            background-color: #5a8f26;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
