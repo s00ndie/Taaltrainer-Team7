@@ -27,21 +27,20 @@ if (!$word) {
 $message = "";
 
 // 2. Логіка перевірки відповіді
+$result_message = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_answer = trim($_POST['answer']);
     $correct_answer = $_POST['correct_answer'];
     $original_word = $_POST['original_word'];
 
     if (mb_strtolower($user_answer) == mb_strtolower($correct_answer)) {
-        $message = "<div class='container'><p style='color: green;'>✅ Correct! <b>$original_word</b> - dat is <b>$correct_answer</b>.</p>";
+        $result_message = "<div class='result-box correct'><h2>✅ Goed gedaan!</h2><p><strong>$original_word</strong> is <strong>$correct_answer</strong> correct.</p></div>";
     } else {
-        $message = "<div class='container'><p style='color: red;'>❌ Fout. <b>$original_word</b> - dat is <b>$correct_answer</b>, maar niet $user_answer.</p></div>";
+        $result_message = "<div class='result-box wrong'><h2>❌ Helaas...</h2><p><strong>$original_word</strong> is <strong>$correct_answer</strong>, niet <strong>$user_answer</strong>.</p></div>";
     }
-    
-    echo $message;
-    echo '<br><a href="test.php" class="butt">Volgende woord!</a></div>';
-    exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -96,6 +95,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
         }
 
+        .result-box {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #5a5a5a;
+            background: #ffffffdd;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .result-box.correct {
+            border-color: #125a22;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .result-box.wrong {
+            border-color: #7a2a2f;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
         .card h3 {
             font-size: 2.25rem;
             margin-bottom: 24px;
@@ -143,6 +164,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h2>Vertaal het woord:</h2>
         
+        <?php if (!empty($result_message)) echo $result_message; ?>
+
         <div class="card">
             <h3>
                 <?php 

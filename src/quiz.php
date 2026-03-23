@@ -52,7 +52,94 @@ if (!$show_result) {
     <title>Taaltrainer Quiz</title>
     <link rel="stylesheet" href="disign/style.css">
     <style>
-        .result-box { padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: linear-gradient(135deg, #a8d86f 0%, #b8e07f 100%);
+            min-height: 100vh;
+            color: #0a0d05;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: min(900px, 100%);
+            padding: 30px;
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #8fc74f;
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+        }
+
+        .question-box {
+            background: #8fc74f;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .question-box h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #0a0d05;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .option-card {
+            background: #94c95c;
+            border: 2px solid #7ab43a;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .option-card input {
+            margin-right: 10px;
+            transform: scale(1.3);
+        }
+
+        .option-card:hover {
+            transform: translateY(-3px);
+            background: #b8e07f;
+        }
+
+        .butt {
+            background: #6a8241;
+            color: #0a0d05;
+            border: 0;
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .butt:hover {
+            background: #93c55f;
+        }
+
+        .result-box {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
         .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
     </style>
