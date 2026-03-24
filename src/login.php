@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="disign/style.css">
     <style>
         :root {
-            --bg-color: #B5CD8A;    
-            --card-bg: #92B25E;
+            --bg-color: #a8d86f;    
+            --card-bg: #b8e07f;
             --text-color: #0A0D05;
             --muted-text: #0A0D05;
             --border-color: #bef39b;
-            --button-bg: #6a8241;
-            --button-hover: #b2e771;
-            --button-text: #0A0D05;
+            --button-bg: #8fc74f;
+            --button-hover: #7ab43a;
+            --button-text: #0b0c0a;
             --radius: 12px;
             --spacing: 16px;
             --card-width: 360px;
@@ -31,7 +31,7 @@
             place-items: center;
             background: var(--bg-color);
             color: var(--text-color);
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:  'Cascadia Code', Consolas, 'Courier New', monospace;
             padding: 24px;
         }
 
@@ -103,27 +103,26 @@
         }
 
         .extra-link a {
-            color: var(--button-bg);
+            color: blue;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <form action="" method="post" class="login-kaart">
-        <h1 class="login-title">Inloggen</h1>
-        <p class="login-subtitle">Voer je gebruikersnaam en wachtwoord in.</p>
-
-        <div class="form-group">
-            <label for="gnaam">Gebruikersnaam</label>
-            <input type="text" id="gnaam" name="gnaam" placeholder="Gebruikersnaam" required>
+    <form action="" method="post">
+        <div class="login-kaart">
+            <h1 class="login-title">Inloggen</h1>
+            <p class="login-subtitle">Voer je gegevens in om in te loggen.</p>
+            <div class="form-group">
+                <label for="gnaam">Gebruikersnaam:</label>
+                <input type="text" name="gnaam" id="gnaam" class="in">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Wachtwoord:</label>
+                <input type="password" name="pwd" id="pwd" class="in">
+            </div>
+            <input type="submit" value="Inloggen" class="login-knop">
         </div>
-
-        <div class="form-group">
-            <label for="pwd">Wachtwoord</label>
-            <input type="password" id="pwd" name="pwd" placeholder="Wachtwoord" required>
-        </div>
-
-        <button type="submit" class="login-knop">Inloggen</button>
         <p class="extra-link"><a href="register.php">Nog geen account?</a></p>
     </form>
 

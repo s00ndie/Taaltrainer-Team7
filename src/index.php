@@ -23,7 +23,7 @@ $username = $loggedIn ? $_SESSION['user'] : null;
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
-            font-family: Arial, sans-serif;
+            font-family:  'Cascadia Code', Consolas, 'Courier New', monospace;
             padding: 20px;
         }
 
@@ -123,25 +123,27 @@ $username = $loggedIn ? $_SESSION['user'] : null;
         .login-links a:hover {
             background: #b8e07f;
         }
+        .welcome {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <button class="menu-btn">☰</button>
-
-    <div class="container">
-        <div class="header">Levels</div>
-
-        <?php if ($loggedIn): ?>
-            <div class="welcome">Welkom, <?= htmlspecialchars($username) ?>!</div>
+    <?php if ($loggedIn): ?>
+        <div class="container">
+            <h2 class="welcome">Welkom, <?= htmlspecialchars($username) ?>!</h2>
+            <div class="header">Levels</div>
+            <div class="levels-grid">
+            <div class="level-row">
+                <a href="quiz.php" class="level-btn">1</a>
+                <a href="test.php" class="level-btn">2</a>
+                    </div>
         <?php endif; ?>
         <div class="login-links">
             <?php if ($loggedIn): ?>
                 
-                <div class="levels-grid">
-                    <div class="level-row">
-                        <a href="quiz.php" class="level-btn">1</a>
-                    <a href="test.php" class="level-btn">2</a>
-            </div>
                 <form action="uitlogen.php" method="post" style="display: inline;">
                     <button class="menu-btn" style="padding: 10px 18px;">Uitloggen</button>
                 </form>

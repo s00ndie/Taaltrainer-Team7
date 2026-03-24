@@ -2,6 +2,13 @@
 session_start();
 require_once('db.php');
 
+if (!isset($_SESSION['Levens1'])) {
+    $_SESSION['Levens1'] = 3;
+}
+if (!isset($_SESSION['score'])) {
+    $_SESSION['score'] = 0;
+}
+
 // 1. НАЛАШТУВАННЯ МОВ
 $lang_from_id = 1; // Нідерландська
 $lang_to_id = 2;   // Іспанська
@@ -43,6 +50,13 @@ if (!$show_result) {
         shuffle($options);
     }
 }
+
+if ($_SESSION['score'] >= 10) {
+    header("Location: Testsites.html");
+    $_SESSION['score'] = 0;
+    $_SESSION['Levens1'] = 3;
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +71,7 @@ if (!$show_result) {
             background: linear-gradient(135deg, #a8d86f 0%, #b8e07f 100%);
             min-height: 100vh;
             color: #0a0d05;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:  'Cascadia Code', Consolas, 'Courier New', monospace;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -65,6 +79,10 @@ if (!$show_result) {
         }
 
         .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: min(900px, 100%);
             padding: 30px;
             background: rgba(255,255,255,0.18);
@@ -87,13 +105,19 @@ if (!$show_result) {
             color: #0a0d05;
         }
 
-        .options-container {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(180px, 1fr));
-            gap: 20px;
+       .options-container {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+
         }
 
         .option-card {
+            display: flex;
+            width: 250px;
             background: #94c95c;
             border: 2px solid #7ab43a;
             border-radius: 12px;
@@ -116,8 +140,8 @@ if (!$show_result) {
         }
 
         .butt {
-            background: #6a8241;
-            color: #0a0d05;
+            background: #7ab43a;
+            color: white;
             border: 0;
             border-radius: 10px;
             padding: 14px 18px;
@@ -148,6 +172,9 @@ if (!$show_result) {
     <div class="container">
         <?php if ($show_result): ?>
             <div class="result-box <?php echo $is_correct ? 'correct' : 'wrong'; ?>">
+                <?php if ($is_correct) {
+                    $_SESSION['score'] += 1;
+                } ?>
                 <h1><?php echo $is_correct ? "✅ Goed gedaan!" : "❌ Helaas..."; ?></h1>
                 <p>Jouw antwoord: <b><?php echo htmlspecialchars($user_answer); ?></b></p>
                 <?php if (!$is_correct): ?>
@@ -158,6 +185,7 @@ if (!$show_result) {
             </div>
 
         <?php else: ?>
+            <?php echo "<h2>Score: " . $_SESSION['score'] . "</h2>"; ?>
             <h2>Vertaal naar het Spaans:</h2>
             <h1 style="color: #2c3e50;">
                 <?php echo ($data['q_art'] ? "<i>" . $data['q_art'] . "</i> " : "") . $data['q_word']; ?>
@@ -177,7 +205,11 @@ if (!$show_result) {
 
                 <br>
                 <button type="submit" class="butt">Controleren</button>
-                <button type="button" class="butt" onclick="window.location.href='index.php'">Terug naar start</button> 
+                <?php
+                    echo '<button type="button" class="butt" onclick="window.location.href=\'index.php\'">Terug naar start</button>';
+                    $_SESSION['score'] = 0;
+                    $_SESSION['Levens1'] = 3;
+                ?>
             </form>
         <?php endif; ?>
     </div>

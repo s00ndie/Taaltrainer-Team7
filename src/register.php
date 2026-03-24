@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="design/style.css">
     <style>
         :root {
-            --bg-color: #B5CD8A;
-            --card-bg: #92B25E;
+            --bg-color: #a8d86f;
+            --card-bg: #b8e07f;
             --text-color: #0A0D05;
             --muted-text: #0A0D05;
             --border-color: #bef39b;
-            --button-bg: #6a8241;
-            --button-hover: #b2e771;
-            --button-text: #0A0D05;
+            --button-bg: #8fc74f;
+            --button-hover: #7ab43a;
+            --button-text: #0b0c0a;
             --radius: 12px;
             --spacing: 16px;
             --card-width: 360px;
@@ -31,7 +31,7 @@
             place-items: center;
             background: var(--bg-color);
             color: var(--text-color);
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:  'Cascadia Code', Consolas, 'Courier New', monospace;
             padding: 24px;
         }
 
@@ -103,7 +103,7 @@
         }
 
         .extra-link a {
-            color: var(--button-bg);
+            color: color: blue;;
             text-decoration: none;
         }
     </style>
@@ -128,7 +128,7 @@
             <input type="password" id="repeatPwd" name="repeatPwd" placeholder="Herhaal je wachtwoord" required>
         </div>
 
-        <button type="submit" class="login-knop">Register</button>
+        <button type="submit" class="login-knop">Registeren</button>
         <p class="extra-link"><a href="login.php">Heb je al een account?</a></p>
     </form>
 
@@ -139,7 +139,6 @@
             </form>';
         } else{
             echo '<br>';
-            echo '<a href="login.php">Heb je al een account?</a><br>';
         }
         ?>
         <?php

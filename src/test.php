@@ -1,12 +1,17 @@
 <?php
 session_start();
-require_once('db.php'); // Підключення до БД
+require_once('db.php');
 
-// Визначаємо ID мов (як ми домовилися: 1 - NL, 2 - ES)
 $lang_from = 1; 
 $lang_to = 2;
 
-// 1. Отримуємо випадкову пару слів через JOIN
+if (!isset($_SESSION['Levens'])) {
+    $_SESSION['Levens'] = 3;
+}
+if (!isset($_SESSION['score1'])) {
+    $_SESSION['score1'] = 0;
+}
+
 $sql = "SELECT 
             t1.word_text AS q_word, 
             t1.article AS q_art,
@@ -26,7 +31,6 @@ if (!$word) {
 
 $message = "";
 
-// 2. Логіка перевірки відповіді
 $result_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -35,9 +39,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $original_word = $_POST['original_word'];
 
     if (mb_strtolower($user_answer) == mb_strtolower($correct_answer)) {
-        $result_message = "<div class='result-box correct'><h2>✅ Goed gedaan!</h2><p><strong>$original_word</strong> is <strong>$correct_answer</strong> correct.</p></div>";
+        $_SESSION['score1'] += 1;
+ 
+        $result_message = "
+        <div class='result-box correct'><h2>✅ Goed gedaan!</h2><p><strong>$original_word</strong> is <strong>$correct_answer</strong> correct.</p></div>
+        ";
+        if ($_SESSION['score1'] === 10) {
+            header("Location: Testsites.html");
+            $_SESSION['score1'] = 0;
+            exit();
+        }
     } else {
         $result_message = "<div class='result-box wrong'><h2>❌ Helaas...</h2><p><strong>$original_word</strong> is <strong>$correct_answer</strong>, niet <strong>$user_answer</strong>.</p></div>";
+        $_SESSION['Levens'] -= 1;
+        if ($_SESSION['Levens'] <= 0) {
+            $_SESSION['score1'] = 0;
+            header("Location: index.php");
+            $_SESSION['Levens'] = 3;
+            exit();
+        }
     }
 }
 
@@ -61,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            font-family:  'Cascadia Code', Consolas, 'Courier New', monospace;
             padding: 20px;
         }
 
@@ -162,6 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container">
+        <?php echo "<h2>Score: " . $_SESSION['score1'] . "</h2> Levens: " . $_SESSION['Levens'] . "<br>"; ?>
         <h2>Vertaal het woord:</h2>
         
         <?php if (!empty($result_message)) echo $result_message; ?>
@@ -180,33 +201,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="hidden" name="original_word" value="<?php echo $word['q_word']; ?>">
                 
                 <br><br>
+
                 <button type="submit" class="butt">Controleer</button>
-                <button type="button" class="butt" onclick="window.location.href='index.php'">Terug naar start</button> 
+                <?php
+                 echo '<button type="button" class="butt" onclick="window.location.href=\'index.php\'">Terug naar start</button>';
+                 $_SESSION['Levens'] = 3;
+                 $_SESSION['score1'] = 0;
+                ?>
             </form>
-            <script>
-                Levens = 3;
-                VragenBeantwoord = 0;
-                if (mb_strtolower($user_answer) == mb_strtolower($correct_answer)) {
-                    Levens = Levens
-                    VragenBeantwoord = VragenBeantwoord + 1
-                    console.log(Levens)
-                }
-                else {
-                    Levens = Levens - 1
-                    console.log(Levens)
-                }
-
-                if Levens == 0 {
-                    print("Game over")
-                    <a href="index.php" id="GoverBack">Terug naar start</a>
-                }
-
-                if VragenBeantwoord == 10 {
-                    print("Je hebt gewonnen")
-                    <a href="test.php" id="WinRetry">Opnieuw</a>
-                    <a href="index.php" id="WinReturn">Terug naar start</a>
-                }
-            </script>
         </div>
     </div>
 </body>
