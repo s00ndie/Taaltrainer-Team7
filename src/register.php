@@ -4,109 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome!</title>
-    <link rel="stylesheet" href="design/style.css">
-    <style>
-        :root {
-            --bg-color: #a8d86f;
-            --card-bg: #b8e07f;
-            --text-color: #0A0D05;
-            --muted-text: #0A0D05;
-            --border-color: #bef39b;
-            --button-bg: #8fc74f;
-            --button-hover: #7ab43a;
-            --button-text: #0b0c0a;
-            --radius: 12px;
-            --spacing: 16px;
-            --card-width: 360px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: grid;
-            place-items: center;
-            background: var(--bg-color);
-            color: var(--text-color);
-            font-family:  'Cascadia Code', Consolas, 'Courier New', monospace;
-            padding: 24px;
-        }
-
-        .login-kaart {
-            width: 100%;
-            max-width: var(--card-width);
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: calc(var(--spacing) * 1.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .login-title {
-            margin: 0 0 8px;
-            font-size: 1.5rem;
-        }
-
-        .login-subtitle {
-            margin: 0 0 20px;
-            color: var(--muted-text);
-            font-size: 0.95rem;
-        }
-
-        .form-group {
-            margin-bottom: var(--spacing);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        input:focus {
-            outline: 2px solid rgba(156, 201, 242, 0.4);
-            border-color: var(--button-bg);
-        }
-
-        .login-knop {
-            width: 100%;
-            border: none;
-            border-radius: 8px;
-            background: var(--button-bg);
-            color: var(--button-text);
-            font-size: 1rem;
-            font-weight: 600;
-            padding: 11px 14px;
-            cursor: pointer;
-        }
-
-        .login-knop:hover {
-            background: var(--button-hover);
-        }
-
-        .extra-link {
-            margin-top: 14px;
-            font-size: 0.9rem;
-            text-align: center;
-            color: var(--muted-text);
-        }
-
-        .extra-link a {
-            color: color: blue;;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../design/register.css">
 </head>
 <body>
     <form action="register.php" method="post" class="login-kaart">
@@ -134,7 +32,7 @@
 
         <?php 
         if(isset($_SESSION['user']))
-            {echo '<form action="logout.php" method="post">
+            {echo '<form action="uitlogen.php" method="post">
             <input type="submit" value="uitloggen" class="logs">
             </form>';
         } else{
@@ -143,8 +41,7 @@
         ?>
         <?php
             require_once('db.php');
-            if($_SERVER['REQUEST_METHOD'] == 'POST')
-            {
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $gnaam = $_POST['gnaam'];
                 $pwd = $_POST['pwd'];
                 $repeatPwd = $_POST['repeatPwd'];
@@ -164,9 +61,7 @@
                 };
                 header('Location: index.php');
             }
-
-        ?>
-        
+        ?>     
     </div>
 </body>
 </html>
