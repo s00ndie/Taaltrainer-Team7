@@ -19,7 +19,7 @@ $lang_to = 2;
     <header>
         <?php
             echo "<h1>Je hebt gewonnen!</h1><br>";
-            echo "<h2>Je hebt " . $_SESSION['score'] . " vragen goed beantwoord en je had " . $_SESSION['Levens1'] . " levens over.</h2>";
+            echo "<h2>Je hebt " . $_SESSION['score'] . " vragen goed beantwoord.</h2>";
         ?>
     </header>
     <body>
