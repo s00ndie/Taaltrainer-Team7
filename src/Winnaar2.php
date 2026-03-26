@@ -24,7 +24,7 @@ $lang_to = 2;
     </header>
     <body>
         <?php
-            echo "<button class='butt' type='submit' onclick='window.location.href=\"quiz.php\"'>Opnieuw spelen</button>";
+            echo "<button class='butt' type='submit' onclick='window.location.href=\"test.php\"'>Opnieuw spelen</button>";
         ?>
         <?php
             echo "<button class='butt' type='submit' onclick='window.location.href=\"index.php\"'>Terug naar menu</button>";

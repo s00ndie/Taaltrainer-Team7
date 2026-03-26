@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user_answer'])) {
         }
     if ($_SESSION['score'] >= 10) {
         $_SESSION['Levens1'] = 3;
-        header("Location: Testsites2.html");
+        header("Location: Winnaar.php");
         $_SESSION['score'] = 0;
         exit();
     }

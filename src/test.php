@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ";
         if ($_SESSION['score1'] === 10) {
             $_SESSION['Levens'] = 3;
-            header("Location: Testsites.html");
+            header("Location: Winnaar2.php");
             $_SESSION['score1'] = 0;
             exit();
         }
